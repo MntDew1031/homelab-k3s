@@ -1,0 +1,17 @@
+# If your kubectl path differs, change /usr/local/bin/kubectl.
+
+[Unit]
+Description=Rancher port-forward (K3s)
+After=network-online.target k3s.service
+Wants=network-online.target
+
+[Service]
+Environment=KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+SyslogIdentifier=rancher-pf
+ExecStart=/usr/local/bin/kubectl -n cattle-system port-forward svc/rancher 4443:443 --address 127.0.0.1
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

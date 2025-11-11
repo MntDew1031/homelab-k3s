@@ -1,3 +1,70 @@
-dist/
-*.log
+# macOS cruft
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors/IDEs
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Logs & temp
+*.log
+*.tmp
+tmp/
+cache/
+*.swp
+*.swo
+
+# Env files / tokens
+.env
+.env.*
+.envrc
+*.token
+*.pat
+
+# Kube configs & cluster creds (never commit these)
+kubeconfig
+kubeconfig.*
+.kube/
+
+# Secrets (defensive patterns)
+secrets*.yaml
+*secret*.yaml
+*Secret*.yaml
+*.enc.yaml
+*.agekey
+*.key
+*.pem
+*.pfx
+*.p12
+*.csr
+*.crt
+
+# SSH keys
+id_*           # private keys
+.ssh/*.pub     # ignore public keys in ~/.ssh specifically (not docs)
+
+# Helm artifacts
+charts/*.tgz
+# (Do NOT ignore Chart.lock if you add a real chart repo later)
+
+# Node/packagers
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Terraform
+.terraform/
+terraform.tfstate*

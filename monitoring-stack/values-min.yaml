@@ -1,0 +1,27 @@
+grafana:
+  adminUser: admin
+  # Do NOT commit real secrets in prod; override via Secret there.
+  adminPassword: "ChangeMe123!"
+  persistence:
+    enabled: false
+  service:
+    type: ClusterIP
+  ingress:
+    enabled: false
+  sidecar:
+    dashboards:
+      enabled: false
+    datasources:
+      enabled: false
+
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+
+prometheus:
+  prometheusSpec:
+    storageSpec: {}
+    retention: 10d
+
+alertmanager:
+  alertmanagerSpec: {}
